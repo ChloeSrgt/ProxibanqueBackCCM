@@ -1,52 +1,50 @@
 package org.formation.model;
 
-import java.util.UUID;
+
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 public class Client {
-	
+
 	private String firstName;
 	private String lastName;
+	private String address;
+	private String codPost;
+	private String city;
+	private String noTel;
+	private List<BankAccount> listAccount;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 
-	
-	//Constructeurs
+
+
+
+	// Constructeurs
 	public Client() {
-		
 	}
 
-	public Client(String firstName, String lastName, long id) {
+	public Client(String firstName, String lastName, String address, String codPost, String city, String noTel) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.id = id;
+		this.address = address;
+		this.codPost = codPost;
+		this.city = city;
+		this.noTel = noTel;
 	}
 
-	
-	
-	//Getters setters
-
-	public long getId() {
-		return id;
-	}
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	// Getter et Setter
 	public String getFirstName() {
 		return firstName;
 	}
-
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
@@ -59,6 +57,52 @@ public class Client {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getCodPost() {
+		return codPost;
+	}
+
+	public void setCodPost(String codPost) {
+		this.codPost = codPost;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getNoTel() {
+		return noTel;
+	}
+
+	public void setNoTel(String noTel) {
+		this.noTel = noTel;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public List<BankAccount> getListAccount() {
+		return listAccount;
+	}
+
+	public void setListAccount(List<BankAccount> listAccount) {
+		this.listAccount = listAccount;
+	}
 }
