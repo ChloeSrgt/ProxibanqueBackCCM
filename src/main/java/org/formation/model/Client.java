@@ -11,7 +11,6 @@ import jakarta.validation.constraints.NotEmpty;
 @Entity
 public class Client {
 	
-	@NotEmpty(message = "Client firstname cannot be empty")
 	private String firstName;
 	private String lastName;
 	

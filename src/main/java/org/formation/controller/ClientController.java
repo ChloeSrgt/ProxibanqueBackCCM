@@ -54,8 +54,7 @@ public class ClientController {
 	
 	//POST
 	@PostMapping 
-	Client postClient(@RequestBody @Valid Client client) {
-		LOG.debug("===============> DEBUG" + client);
+	Client postClient(@RequestBody  Client client) {
 		return service.save(client);
 	}
 	
