@@ -1,5 +1,10 @@
 package org.formation.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Current account")
 public class CurrentAccount extends BankAccount{
 	
 	private double overDrawn=1000;

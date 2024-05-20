@@ -1,5 +1,10 @@
 package org.formation.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Saving account")
 public class savingAccount extends BankAccount{
 
 	private double payRate = 0.03;

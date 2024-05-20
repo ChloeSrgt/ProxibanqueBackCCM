@@ -3,6 +3,7 @@ package org.formation.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +18,9 @@ public class BankAccount {
 	private double solde;
 	private String openDate;
 	private String card;
+	
+	@Column(name= "account_type")
+	private String accountType;
 	
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.REMOVE)
@@ -82,6 +86,22 @@ public class BankAccount {
 	}
 
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+
 	@Override
 	public String toString() {
 		return "BankAccount [numAccount=" + numAccount + ", solde=" + solde + ", openDate=" + openDate + ", card="
