@@ -109,4 +109,6 @@ public class Client {
 	public void setListAccount(List<BankAccount> listAccount) {
 		this.listAccount = listAccount;
 	}
+	
+	
 }

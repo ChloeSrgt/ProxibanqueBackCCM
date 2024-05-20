@@ -1,7 +1,16 @@
 package org.formation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+@Entity
 public class BankAccount {
 	
 	private String numAccount;
@@ -9,9 +18,14 @@ public class BankAccount {
 	private String openDate;
 	private String card;
 	
-	@ManyToOne
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.REMOVE)
+	@JoinColumn(name="client_id")
 	private Client client;
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 	
 	
 	public BankAccount() {
