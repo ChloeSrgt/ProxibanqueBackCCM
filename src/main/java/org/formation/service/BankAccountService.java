@@ -1,5 +1,9 @@
 package org.formation.service;
 
-public interface BankAccountService {
+import java.util.List;
 
+import org.formation.model.BankAccount;
+
+public interface BankAccountService {
+	List<BankAccount> getAll();
 }

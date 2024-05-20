@@ -1,5 +1,6 @@
 package org.formation.service;
 
-public class BankAccountServiceImpl {
-
+public class BankAccountServiceImpl implements BankAccountService {
+	
+	
 }

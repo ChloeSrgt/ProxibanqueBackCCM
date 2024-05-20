@@ -37,6 +37,7 @@ public class BankAccount {
 	public void setSolde(double solde) {
 		this.solde = solde;
 	}
+	
 	public String getOpenDate() {
 		return openDate;
 	}
