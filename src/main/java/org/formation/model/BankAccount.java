@@ -1,11 +1,16 @@
 package org.formation.model;
 
+import jakarta.persistence.ManyToOne;
+
 public class BankAccount {
 	
 	private String numAccount;
 	private double solde;
 	private String openDate;
 	private String card;
+	
+	@ManyToOne
+	private Client client;
 	
 	
 	
@@ -54,8 +59,14 @@ public class BankAccount {
 		this.card = card;
 	}
 	
+	public Client getClient() {
+		return client;
+	}
 
-	
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 	
 	@Override
 	public String toString() {
