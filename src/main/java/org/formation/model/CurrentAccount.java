@@ -14,7 +14,7 @@ public class CurrentAccount extends BankAccount{
 		
 	}
 	
-	public CurrentAccount(String numAccount, double solde, String openDate, String card) {
+	public CurrentAccount(String numAccount, double solde, String openDate, Card card) {
 		super(numAccount, solde, openDate, card);
 	}
 
