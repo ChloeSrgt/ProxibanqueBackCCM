@@ -1,8 +1,7 @@
 package org.formation.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+
 import jakarta.persistence.Id;
 
 @Entity
@@ -13,7 +12,7 @@ public class Manager {
 	private String email;
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
 	//Getter et Setter

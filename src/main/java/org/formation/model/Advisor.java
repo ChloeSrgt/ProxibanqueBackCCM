@@ -2,12 +2,15 @@ package org.formation.model;
 
 import java.util.List;
 
+
 public class Advisor {
 	
 	private String lastName;
 	private String firstName;
 	private String email;
 	private List<Client> clients;
+	
+	
 	
 	public String getLastName() {
 		return lastName;
