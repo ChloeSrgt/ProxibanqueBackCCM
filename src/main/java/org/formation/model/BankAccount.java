@@ -1,5 +1,6 @@
 package org.formation.model;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -9,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class BankAccount {
@@ -16,6 +18,9 @@ public class BankAccount {
 	private String numAccount;
 	private double solde;
 	private String openDate;
+	
+	@OneToOne 
+	@JoinColumn(name="card_id", unique=true) 
 	private Card card;
 	
 //	@Column(name= "account_type")
@@ -67,13 +72,13 @@ public class BankAccount {
 		this.openDate = openDate;
 	}
 	
-//	public String getCard() {
-//		return card;
-//	}
-//	
-//	public void setCard(String card) {
-//		this.card = card;
-//	}
+	public Card getCard() {
+		return card;
+	}
+	
+	public void setCard(Card card) {
+		this.card = card;
+	}
 	
 	public Client getClient() {
 		return client;
@@ -100,11 +105,7 @@ public class BankAccount {
 //		this.accountType = accountType;
 //	}
 
-	@Override
-	public String toString() {
-		return "BankAccount [numAccount=" + numAccount + ", solde=" + solde + ", openDate=" + openDate + ", card="
-				+ card + "]";
-	}
+
 	
 	
 	
