@@ -2,7 +2,7 @@ package org.formation.controller;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
+
 import org.formation.model.Client;
 import org.formation.service.ClientService;
 import org.slf4j.Logger;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.validation.Valid;
 
 
 @RestController

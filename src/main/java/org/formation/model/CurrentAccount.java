@@ -1,13 +1,21 @@
 package org.formation.model;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Current account")
 public class CurrentAccount extends BankAccount{
 	
 	private double overDrawn=1000;
 	
 
+	public CurrentAccount() {
+		
+	}
+	
 	public CurrentAccount(String numAccount, double solde, String openDate, String card) {
 		super(numAccount, solde, openDate, card);
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -20,5 +28,11 @@ public class CurrentAccount extends BankAccount{
 		this.overDrawn = overDrawn;
 	}
 
+	
+	
+	
+
+	
+	
 	
 }

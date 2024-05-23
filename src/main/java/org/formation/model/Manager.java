@@ -2,12 +2,18 @@ package org.formation.model;
 
 import jakarta.persistence.Entity;
 
+import jakarta.persistence.Id;
+
 @Entity
 public class Manager {
 	
 	private String lastName;
 	private String firstName;
 	private String email;
+	
+	@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 	
 	//Getter et Setter
 	public String getLastName() {

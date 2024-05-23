@@ -2,6 +2,7 @@ package org.formation.model;
 
 import java.util.List;
 
+
 public class Agence {
 	
 	private String identificationNumber;
@@ -9,6 +10,8 @@ public class Agence {
 	private List<Advisor> advisors;
 	private String managerName;
 	private List<Client> clients;
+	
+	
 	
 	public String getIdentificationNumber() {
 		return identificationNumber;

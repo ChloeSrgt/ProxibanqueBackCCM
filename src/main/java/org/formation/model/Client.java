@@ -3,10 +3,12 @@ package org.formation.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Client {
@@ -17,6 +19,8 @@ public class Client {
 	private String codPost;
 	private String city;
 	private String noTel;
+	
+	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
 	private List<BankAccount> listAccount;
 	
 	@Id
@@ -105,4 +109,6 @@ public class Client {
 	public void setListAccount(List<BankAccount> listAccount) {
 		this.listAccount = listAccount;
 	}
+	
+	
 }
