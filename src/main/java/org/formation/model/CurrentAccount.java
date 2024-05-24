@@ -1,6 +1,7 @@
 package org.formation.model;
 
 import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -8,8 +9,10 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class CurrentAccount {
 	
+	@Embedded
+	private InfoAccount infoAccount;
 	private double overDrawn=1000;
-	
+
 	@OneToOne(mappedBy = "currentAccount")
 	private Client client;
 	

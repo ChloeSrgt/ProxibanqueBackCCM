@@ -3,7 +3,9 @@ package org.formation.model;
 
 import java.util.List;
 
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,8 +36,8 @@ public class Client {
 	@JoinColumn(name="saving_account_id", unique=true) 
 	private savingAccount savingAccount;
 	
-	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
-	private List<BankAccount> listAccount;
+//	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
+//	private List<BankAccount> listAccount;
 	
 	
 	@Id
@@ -117,13 +119,13 @@ public class Client {
 		this.id = id;
 	}
 
-	public List<BankAccount> getListAccount() {
-		return listAccount;
-	}
-
-	public void setListAccount(List<BankAccount> listAccount) {
-		this.listAccount = listAccount;
-	}
+//	public List<BankAccount> getListAccount() {
+//		return listAccount;
+//	}
+//
+//	public void setListAccount(List<BankAccount> listAccount) {
+//		this.listAccount = listAccount;
+//	}
 	
 	
 }

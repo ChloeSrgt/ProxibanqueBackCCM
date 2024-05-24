@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.formation.model.BankAccount;
 import org.formation.model.Client;
 import org.formation.repository.ClientRepository;
 import org.springframework.stereotype.Service;
@@ -36,9 +35,9 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public Client save(Client client) {
-		for (BankAccount account : client.getListAccount()) {
-            account.setClient(client);
-        }
+//		for (BankAccount account : client.getListAccount()) {
+//            account.setClient(client);
+//        }
 		return repository.save(client);
 	}
 
