@@ -5,6 +5,7 @@ import java.util.List;
 
 import java.util.Optional;
 
+import org.formation.dto.AccountsDTO;
 import org.formation.model.Client;
 
 
@@ -15,4 +16,5 @@ public interface ClientService {
 	Optional<Client> getClientById(long id);
 	void deleteById(long id);
 	Client update(Client client);
+	AccountsDTO getAccountsByClientId(long id);
 }

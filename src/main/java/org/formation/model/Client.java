@@ -26,7 +26,7 @@ public class Client {
 	
 	@OneToOne 
 	@JoinColumn(name="saving_account_id", unique=true) 
-	private savingAccount savingAccount;
+	private SavingAccount savingAccount;
 	
 	@Embedded
     private Address address;
@@ -96,11 +96,11 @@ public class Client {
 		this.currentAccount = currentAccount;
 	}
 
-	public savingAccount getSavingAccount() {
+	public SavingAccount getSavingAccount() {
 		return savingAccount;
 	}
 
-	public void setSavingAccount(savingAccount savingAccount) {
+	public void setSavingAccount(SavingAccount savingAccount) {
 		this.savingAccount = savingAccount;
 	}
 
