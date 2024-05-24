@@ -23,9 +23,10 @@ public class Client {
     @JoinColumn(name="current_account_id", unique=true) 
     private CurrentAccount currentAccount;
     
+    
     @OneToOne 
-    @JoinColumn(name="saving_account_id", unique=true) 
-    private savingAccount savingAccount;
+	@JoinColumn(name="saving_account_id", unique=true) 
+	private SavingAccount savingAccount;
     
     @Embedded
     private Address address;
@@ -84,4 +85,30 @@ public class Client {
     public void setId(long id) {
         this.id = id;
     }
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
+	public CurrentAccount getCurrentAccount() {
+		return currentAccount;
+	}
+
+	public void setCurrentAccount(CurrentAccount currentAccount) {
+		this.currentAccount = currentAccount;
+	}
+
+	public SavingAccount getSavingAccount() {
+		return savingAccount;
+	}
+
+	public void setSavingAccount(SavingAccount savingAccount) {
+		this.savingAccount = savingAccount;
+	}
+
+	
 }

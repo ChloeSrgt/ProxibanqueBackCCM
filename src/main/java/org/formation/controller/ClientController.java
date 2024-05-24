@@ -2,6 +2,7 @@ package org.formation.controller;
 
 import java.util.List;
 
+import org.formation.dto.AccountsDTO;
 import org.formation.model.Client;
 import org.formation.service.ClientService;
 import org.slf4j.Logger;
@@ -40,6 +41,12 @@ public class ClientController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/{id}/accounts")
+    public AccountsDTO getAccounts(@PathVariable Long id) {
+        return service.getAccountsByClientId(id);
+    }
+    
+    
     // DELETE
     @DeleteMapping("{id}")
     void deleteClient(@PathVariable long id) {

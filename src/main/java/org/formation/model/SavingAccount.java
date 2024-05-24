@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class CurrentAccount {
+public class SavingAccount {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,24 +18,26 @@ public class CurrentAccount {
 	
 	@Embedded
 	private InfoAccount infoAccount;
-	private double overDrawn=1000;
-
+	private double payRate = 0.03;
+	
 	@JsonIgnore
-	@OneToOne(mappedBy = "currentAccount")
+	@OneToOne(mappedBy = "savingAccount")
 	private Client client;
 	
 
-	public CurrentAccount() {
-		
-	}
 	
-	public double getOverDrawn() {
-		return overDrawn;
+	
+
+	public SavingAccount() {
+
 	}
 
+	public double getPayRate() {
+		return payRate;
+	}
 
-	public void setOverDrawn(double overDrawn) {
-		this.overDrawn = overDrawn;
+	public void setPayRate(double payRate) {
+		this.payRate = payRate;
 	}
 
 	public InfoAccount getInfoAccount() {
@@ -61,12 +63,8 @@ public class CurrentAccount {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	
 	
 	
 
-	
-	
-	
 }
