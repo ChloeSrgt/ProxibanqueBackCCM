@@ -1,9 +1,9 @@
 package org.formation.model;
 
-
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,103 +12,77 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Client {
+    private String firstName;
+    private String lastName;
+    private String noTel;
 
-	private String firstName;
-	private String lastName;
-	private String address;
-	private String codPost;
-	private String city;
-	private String noTel;
-	
-	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
-	private List<BankAccount> listAccount;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+    @Embedded
+    private Address address;
 
+    @OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
+    private List<BankAccount> listAccount;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
+    // Constructeurs, getters et setters...
 
+    public Client() {}
 
-	// Constructeurs
-	public Client() {
-	}
+    public Client(String firstName, String lastName, Address address, String noTel) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.noTel = noTel;
+    }
 
-	public Client(String firstName, String lastName, String address, String codPost, String city, String noTel) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.codPost = codPost;
-		this.city = city;
-		this.noTel = noTel;
-	}
+    // Getters et setters
+    public String getFirstName() {
+        return firstName;
+    }
 
-	// Getter et Setter
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public Address getAddress() {
+        return address;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public String getNoTel() {
+        return noTel;
+    }
 
-	public String getCodPost() {
-		return codPost;
-	}
+    public void setNoTel(String noTel) {
+        this.noTel = noTel;
+    }
 
-	public void setCodPost(String codPost) {
-		this.codPost = codPost;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public List<BankAccount> getListAccount() {
+        return listAccount;
+    }
 
-	public String getNoTel() {
-		return noTel;
-	}
-
-	public void setNoTel(String noTel) {
-		this.noTel = noTel;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public List<BankAccount> getListAccount() {
-		return listAccount;
-	}
-
-	public void setListAccount(List<BankAccount> listAccount) {
-		this.listAccount = listAccount;
-	}
-	
-	
+    public void setListAccount(List<BankAccount> listAccount) {
+        this.listAccount = listAccount;
+    }
 }
