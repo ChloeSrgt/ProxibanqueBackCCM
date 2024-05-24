@@ -26,8 +26,15 @@ public class Client {
 	@JoinColumn(name="card_id", unique=true) 
 	private Card card;
 	
+	@OneToOne 
+	@JoinColumn(name="current_account_id", unique=true) 
+	private CurrentAccount currentAccount;
+	
+	
+	
 	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
 	private List<BankAccount> listAccount;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,13 +4,12 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("Saving account")
 public class savingAccount extends BankAccount{
 
 	private double payRate = 0.03;
 	
-	public savingAccount(String numAccount, double solde, String openDate, Card card) {
-		super(numAccount, solde, openDate, card);
+	public savingAccount(String numAccount, double solde, String openDate) {
+		super(numAccount, solde, openDate);
 	}
 
 	public double getPayRate() {

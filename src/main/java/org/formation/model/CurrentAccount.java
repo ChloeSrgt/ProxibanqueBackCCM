@@ -2,21 +2,27 @@ package org.formation.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
-@DiscriminatorValue("Current account")
-public class CurrentAccount extends BankAccount{
+public class CurrentAccount {
 	
 	private double overDrawn=1000;
 	
+	@OneToOne(mappedBy = "currentAccount")
+	private Client client;
+	
+	@Id
+	private Long id;
 
 	public CurrentAccount() {
 		
 	}
 	
-	public CurrentAccount(String numAccount, double solde, String openDate, Card card) {
-		super(numAccount, solde, openDate, card);
-	}
+//	public CurrentAccount(String numAccount, double solde, String openDate) {
+//		super(numAccount, solde, openDate);
+//	}
 
 
 	public double getOverDrawn() {
