@@ -1,5 +1,7 @@
 package org.formation.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +20,7 @@ public class SavingAccount {
 	private InfoAccount infoAccount;
 	private double payRate = 0.03;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "savingAccount")
 	private Client client;
 	
