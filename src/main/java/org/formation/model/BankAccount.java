@@ -19,13 +19,6 @@ public class BankAccount {
 	private double solde;
 	private String openDate;
 	
-	@OneToOne 
-	@JoinColumn(name="card_id", unique=true) 
-	private Card card;
-	
-//	@Column(name= "account_type")
-//	private String accountType;
-	
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name="client_id")
@@ -39,11 +32,10 @@ public class BankAccount {
 		
 	}
 	
-	public BankAccount(String numAccount, double solde, String openDate, Card card) {
+	public BankAccount(String numAccount, double solde, String openDate) {
 		this.numAccount = numAccount;
 		this.solde = solde;
 		this.openDate = openDate;
-		this.card = card;
 	}
 	
 	
@@ -72,14 +64,6 @@ public class BankAccount {
 		this.openDate = openDate;
 	}
 	
-	public Card getCard() {
-		return card;
-	}
-	
-	public void setCard(Card card) {
-		this.card = card;
-	}
-	
 	public Client getClient() {
 		return client;
 	}
@@ -97,17 +81,8 @@ public class BankAccount {
 		this.id = id;
 	}
 
-//	public String getAccountType() {
-//		return accountType;
-//	}
-//
-//	public void setAccountType(String accountType) {
-//		this.accountType = accountType;
-//	}
 
 
-	
-	
 	
 
 }

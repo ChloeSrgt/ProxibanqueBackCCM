@@ -8,7 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Client {
@@ -19,6 +21,10 @@ public class Client {
 	private String codPost;
 	private String city;
 	private String noTel;
+	
+	@OneToOne 
+	@JoinColumn(name="card_id", unique=true) 
+	private Card card;
 	
 	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
 	private List<BankAccount> listAccount;

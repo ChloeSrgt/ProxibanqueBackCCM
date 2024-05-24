@@ -16,7 +16,7 @@ public class Card {
 	private String cardType;
 	
 	@OneToOne(mappedBy = "card")
-	private BankAccount bankAccount;
+	private Client client;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -54,16 +54,26 @@ public class Card {
 		this.cardType = cardType;
 	}
 
-	public BankAccount getBankAccount() {
-		return bankAccount;
-	}
-
-	public void setBankAccount(BankAccount bankAccount) {
-		this.bankAccount = bankAccount;
-	}
+//	public BankAccount getBankAccount() {
+//		return bankAccount;
+//	}
+//
+//	public void setBankAccount(BankAccount bankAccount) {
+//		this.bankAccount = bankAccount;
+//	}
+	
+	
 
 	public Long getId() {
 		return id;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public void setId(Long id) {
