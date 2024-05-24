@@ -80,6 +80,30 @@ public class Client {
         this.id = id;
     }
 
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
+	public CurrentAccount getCurrentAccount() {
+		return currentAccount;
+	}
+
+	public void setCurrentAccount(CurrentAccount currentAccount) {
+		this.currentAccount = currentAccount;
+	}
+
+	public savingAccount getSavingAccount() {
+		return savingAccount;
+	}
+
+	public void setSavingAccount(savingAccount savingAccount) {
+		this.savingAccount = savingAccount;
+	}
+
 	
 
 }
