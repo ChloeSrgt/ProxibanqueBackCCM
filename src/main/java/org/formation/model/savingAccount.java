@@ -1,15 +1,25 @@
 package org.formation.model;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
-public class savingAccount extends BankAccount{
+public class savingAccount {
 
 	private double payRate = 0.03;
 	
-	public savingAccount(String numAccount, double solde, String openDate) {
-		super(numAccount, solde, openDate);
+	@OneToOne(mappedBy = "savingAccount")
+	private Client client;
+	
+	@Id
+	private Long id;
+
+	
+	
+
+	public savingAccount() {
+
 	}
 
 	public double getPayRate() {

@@ -30,7 +30,9 @@ public class Client {
 	@JoinColumn(name="current_account_id", unique=true) 
 	private CurrentAccount currentAccount;
 	
-	
+	@OneToOne 
+	@JoinColumn(name="saving_account_id", unique=true) 
+	private savingAccount savingAccount;
 	
 	@OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
 	private List<BankAccount> listAccount;
