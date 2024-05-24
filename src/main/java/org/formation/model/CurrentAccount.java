@@ -1,6 +1,5 @@
 package org.formation.model;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
