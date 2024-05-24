@@ -1,7 +1,5 @@
 package org.formation.model;
 
-
-
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,30 +11,29 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class Client {
 
-	private String firstName;
-	private String lastName;
+    private String firstName;
+    private String lastName;
+    private String noTel; 
 
-	@OneToOne 
-	@JoinColumn(name="card_id", unique=true) 
-	private Card card;
-	
-	@OneToOne 
-	@JoinColumn(name="current_account_id", unique=true) 
-	private CurrentAccount currentAccount;
-	
-	@OneToOne 
-	@JoinColumn(name="saving_account_id", unique=true) 
-	private savingAccount savingAccount;
-	
-	@Embedded
+    @OneToOne
+    @JoinColumn(name="card_id", unique=true) 
+    private Card card;
+    
+    @OneToOne 
+    @JoinColumn(name="current_account_id", unique=true) 
+    private CurrentAccount currentAccount;
+    
+    @OneToOne 
+    @JoinColumn(name="saving_account_id", unique=true) 
+    private savingAccount savingAccount;
+    
+    @Embedded
     private Address address;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id; 
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id; 
 
-
-    // Constructeurs, getters et setters...
 
     public Client() {}
 
@@ -44,6 +41,7 @@ public class Client {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
+        this.noTel = noTel; // Ajoutez cette ligne
     }
 
     // Getters et setters
@@ -71,6 +69,13 @@ public class Client {
         this.address = address;
     }
 
+    public String getNoTel() {
+        return noTel; 
+    }
+
+    public void setNoTel(String noTel) {
+        this.noTel = noTel; 
+    }
 
     public long getId() {
         return id;
@@ -79,7 +84,4 @@ public class Client {
     public void setId(long id) {
         this.id = id;
     }
-
-	
-
 }
