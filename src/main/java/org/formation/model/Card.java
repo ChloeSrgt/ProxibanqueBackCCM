@@ -1,11 +1,39 @@
 package org.formation.model;
 
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class Card {
 	
 	private String numCard;
 	private String expirationDate;
 	private String cardType;
-	private String bankAccountAssociated;
+	
+	@OneToOne(mappedBy = "card")
+	private BankAccount bankAccount;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private Long id;
+	
+	
+	
+	public Card() {
+	}
+	
+	public Card(String numCard, String expirationDate, String cardType) {
+		this.numCard = numCard;
+		this.expirationDate = expirationDate;
+		this.cardType = cardType;
+	}
+	
+
 	
 	public String getNumCard() {
 		return numCard;
@@ -25,20 +53,24 @@ public class Card {
 	public void setCardType(String cardType) {
 		this.cardType = cardType;
 	}
-	public String getBankAccountAssociated() {
-		return bankAccountAssociated;
+
+	public BankAccount getBankAccount() {
+		return bankAccount;
 	}
-	public void setBankAccountAssociated(String bankAccountAssociated) {
-		this.bankAccountAssociated = bankAccountAssociated;
+
+	public void setBankAccount(BankAccount bankAccount) {
+		this.bankAccount = bankAccount;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	
-	public Card(String numCard, String expirationDate, String cardType, String bankAccountAssociated) {
-		super();
-		this.numCard = numCard;
-		this.expirationDate = expirationDate;
-		this.cardType = cardType;
-		this.bankAccountAssociated = bankAccountAssociated;
-	}
 	
 	
 

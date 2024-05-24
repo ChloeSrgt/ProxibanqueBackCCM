@@ -1,5 +1,6 @@
 package org.formation.model;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
@@ -9,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class BankAccount {
@@ -16,10 +18,13 @@ public class BankAccount {
 	private String numAccount;
 	private double solde;
 	private String openDate;
-	private String card;
 	
-	@Column(name= "account_type")
-	private String accountType;
+	@OneToOne 
+	@JoinColumn(name="card_id", unique=true) 
+	private Card card;
+	
+//	@Column(name= "account_type")
+//	private String accountType;
 	
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.REMOVE)
@@ -34,7 +39,7 @@ public class BankAccount {
 		
 	}
 	
-	public BankAccount(String numAccount, double solde, String openDate, String card) {
+	public BankAccount(String numAccount, double solde, String openDate, Card card) {
 		this.numAccount = numAccount;
 		this.solde = solde;
 		this.openDate = openDate;
@@ -67,11 +72,11 @@ public class BankAccount {
 		this.openDate = openDate;
 	}
 	
-	public String getCard() {
+	public Card getCard() {
 		return card;
 	}
 	
-	public void setCard(String card) {
+	public void setCard(Card card) {
 		this.card = card;
 	}
 	
@@ -92,19 +97,15 @@ public class BankAccount {
 		this.id = id;
 	}
 
-	public String getAccountType() {
-		return accountType;
-	}
+//	public String getAccountType() {
+//		return accountType;
+//	}
+//
+//	public void setAccountType(String accountType) {
+//		this.accountType = accountType;
+//	}
 
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
-	}
 
-	@Override
-	public String toString() {
-		return "BankAccount [numAccount=" + numAccount + ", solde=" + solde + ", openDate=" + openDate + ", card="
-				+ card + "]";
-	}
 	
 	
 	
