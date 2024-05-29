@@ -2,6 +2,9 @@ package org.formation.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.AttributeOverrides;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,62 +14,55 @@ import jakarta.persistence.OneToOne;
 
 @Entity
 public class CurrentAccount {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Embedded
-	private InfoAccount infoAccount;
-	private double overDrawn=1000;
 
-	@JsonIgnore
-	@OneToOne(mappedBy = "currentAccount")
-	private Client client;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public CurrentAccount() {
-		
-	}
-	
-	public double getOverDrawn() {
-		return overDrawn;
-	}
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "numAccount", column = @Column(name = "num_account")),
+        @AttributeOverride(name = "openDate", column = @Column(name = "open_date")),
+        @AttributeOverride(name = "solde", column = @Column(name = "solde"))
+    })
+    private InfoAccount infoAccount;
 
+    @Column(name = "over_drawn")
+    private double overDrawn = 1000;
 
-	public void setOverDrawn(double overDrawn) {
-		this.overDrawn = overDrawn;
-	}
+    @JsonIgnore
+    @OneToOne(mappedBy = "currentAccount")
+    private Client client;
 
-	public InfoAccount getInfoAccount() {
-		return infoAccount;
-	}
+    public double getOverDrawn() {
+        return overDrawn;
+    }
 
-	public void setInfoAccount(InfoAccount infoAccount) {
-		this.infoAccount = infoAccount;
-	}
+    public void setOverDrawn(double overDrawn) {
+        this.overDrawn = overDrawn;
+    }
 
-	public Client getClient() {
-		return client;
-	}
+    public InfoAccount getInfoAccount() {
+        return infoAccount;
+    }
 
-	public void setClient(Client client) {
-		this.client = client;
-	}
+    public void setInfoAccount(InfoAccount infoAccount) {
+        this.infoAccount = infoAccount;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Client getClient() {
+        return client;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
-	
-	
-	
+    public Long getId() {
+        return id;
+    }
 
-	
-	
-	
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

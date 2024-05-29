@@ -1,5 +1,6 @@
 package org.formation.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,29 +12,28 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class Client {
 
-    private String firstName;
-    private String lastName;
-    private String noTel; 
-
-    @OneToOne
-    @JoinColumn(name="card_id", unique=true) 
-    private Card card;
-    
-    @OneToOne 
-    @JoinColumn(name="current_account_id", unique=true) 
-    private CurrentAccount currentAccount;
-    
-    
-    @OneToOne 
-	@JoinColumn(name="saving_account_id", unique=true) 
-	private SavingAccount savingAccount;
-    
-    @Embedded
-    private Address address;
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id; 
+    private Long id;
+
+    private String firstName;
+    private String lastName;
+    private String noTel;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "card_id", unique = true)
+    private Card card;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "current_account_id", unique = true)
+    private CurrentAccount currentAccount;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "saving_account_id", unique = true)
+    private SavingAccount savingAccount;
+
+    @Embedded
+    private Address address;
 
 
     public Client() {}
@@ -42,10 +42,9 @@ public class Client {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.noTel = noTel; // Ajoutez cette ligne
+        this.noTel = noTel; 
     }
 
-    // Getters et setters
     public String getFirstName() {
         return firstName;
     }
