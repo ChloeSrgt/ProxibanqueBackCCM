@@ -15,6 +15,6 @@ public interface ClientService {
 	Client save(Client client);
 	Optional<Client> getClientById(long id);
 	void deleteById(long id);
-	Client update(Client client);
+	Client update(Long id, Client client);
 	AccountsDTO getAccountsByClientId(long id);
 }
