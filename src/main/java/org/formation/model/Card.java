@@ -2,6 +2,8 @@ package org.formation.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,6 +17,7 @@ public class Card {
 	private String expirationDate;
 	private String cardType;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "card")
 	private Client client;
 	
