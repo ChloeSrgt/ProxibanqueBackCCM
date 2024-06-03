@@ -63,10 +63,10 @@ public class ClientController {
     
     //PUT
     
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public ResponseEntity<Client> putClient(@PathVariable long id, @RequestBody Client client){
     	LOG.info("Edited client : {} ", client);
-    	Client clientUpdated = service.update(id, client);
-    	return ResponseEntity.ok(clientUpdated);
+    	service.update(client);
+    	return null;
     }
 }

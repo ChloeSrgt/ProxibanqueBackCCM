@@ -55,22 +55,9 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client update(Long id, Client client) {
-        Optional<Client> optionalClient = repository.findById(id);
-        if(optionalClient.isPresent()) {
-        	Client existingClient = optionalClient.get();
-        	existingClient.setAddress(client.getAddress());
-        	existingClient.setCard(client.getCard());
-        	existingClient.setCurrentAccount(client.getCurrentAccount());
-        	existingClient.setSavingAccount(client.getSavingAccount());
-        	existingClient.setFirstName(client.getFirstName());
-        	existingClient.setLastName(client.getLastName());
-        	existingClient.setId(client.getId());
-        	existingClient.setNoTel(client.getNoTel());
-        	return repository.save(existingClient);
-        	} else {
-        		throw new RuntimeException("Client non trouvé avec cet id :" +id);
-        	} 
+    public Client update(Client client) {
+        repository.save(client);
+        return client;
     };
 
 
