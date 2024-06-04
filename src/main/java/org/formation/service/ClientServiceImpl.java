@@ -69,11 +69,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 
-    @Override
-    public Client update(Client client) {
-        repository.save(client);
-        return client;
-    };
+
 
 	@Override
 	public void deleteById(long id) {
