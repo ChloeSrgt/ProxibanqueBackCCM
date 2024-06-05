@@ -15,54 +15,52 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class CurrentAccount {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "numAccount", column = @Column(name = "num_account")),
-        @AttributeOverride(name = "openDate", column = @Column(name = "open_date")),
-        @AttributeOverride(name = "solde", column = @Column(name = "solde"))
-    })
-    private InfoAccount infoAccount;
+	@Embedded
+	@AttributeOverrides({ @AttributeOverride(name = "numAccount", column = @Column(name = "num_account")),
+			@AttributeOverride(name = "openDate", column = @Column(name = "open_date")),
+			@AttributeOverride(name = "solde", column = @Column(name = "solde")) })
+	private InfoAccount infoAccount;
 
-    @Column(name = "over_drawn")
-    private double overDrawn = 1000;
+	@Column(name = "over_drawn")
+	private double overDrawn = 1000;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "currentAccount")
-    private Client client;
+	@JsonIgnore
+	@OneToOne(mappedBy = "currentAccount")
+	private Client client;
 
-    public double getOverDrawn() {
-        return overDrawn;
-    }
+	public double getOverDrawn() {
+		return overDrawn;
+	}
 
-    public void setOverDrawn(double overDrawn) {
-        this.overDrawn = overDrawn;
-    }
+	public void setOverDrawn(double overDrawn) {
+		this.overDrawn = overDrawn;
+	}
 
-    public InfoAccount getInfoAccount() {
-        return infoAccount;
-    }
+	public InfoAccount getInfoAccount() {
+		return infoAccount;
+	}
 
-    public void setInfoAccount(InfoAccount infoAccount) {
-        this.infoAccount = infoAccount;
-    }
+	public void setInfoAccount(InfoAccount infoAccount) {
+		this.infoAccount = infoAccount;
+	}
 
-    public Client getClient() {
-        return client;
-    }
+	public Client getClient() {
+		return client;
+	}
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
+	public void setClient(Client client) {
+		this.client = client;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

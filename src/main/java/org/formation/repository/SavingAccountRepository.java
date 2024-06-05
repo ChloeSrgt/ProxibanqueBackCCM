@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface SavingAccountRepository extends JpaRepository<SavingAccount, Long> {
 
-    @Query("SELECT sa FROM SavingAccount sa WHERE sa.client.id = :clientId")
-    SavingAccount findByClientId(@Param("clientId") Long clientId);
+	@Query("SELECT sa FROM SavingAccount sa WHERE sa.client.id = :clientId")
+	SavingAccount findByClientId(@Param("clientId") Long clientId);
 }

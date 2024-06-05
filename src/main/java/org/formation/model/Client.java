@@ -12,78 +12,78 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class Client {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private String firstName;
-    private String lastName;
-    private String noTel;
+	private String firstName;
+	private String lastName;
+	private String noTel;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_id", unique = true)
-    private Card card;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "card_id", unique = true)
+	private Card card;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "current_account_id", unique = true)
-    private CurrentAccount currentAccount;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "current_account_id", unique = true)
+	private CurrentAccount currentAccount;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "saving_account_id", unique = true)
-    private SavingAccount savingAccount;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "saving_account_id", unique = true)
+	private SavingAccount savingAccount;
 
-    @Embedded
-    private Address address;
+	@Embedded
+	private Address address;
 
+	public Client() {
+	}
 
-    public Client() {}
+	public Client(String firstName, String lastName, Address address, String noTel) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.noTel = noTel;
+	}
 
-    public Client(String firstName, String lastName, Address address, String noTel) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.noTel = noTel; 
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public String getFirstName() {
-        return firstName;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public Address getAddress() {
+		return address;
+	}
 
-    public Address getAddress() {
-        return address;
-    }
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+	public String getNoTel() {
+		return noTel;
+	}
 
-    public String getNoTel() {
-        return noTel; 
-    }
+	public void setNoTel(String noTel) {
+		this.noTel = noTel;
+	}
 
-    public void setNoTel(String noTel) {
-        this.noTel = noTel; 
-    }
+	public long getId() {
+		return id;
+	}
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public Card getCard() {
 		return card;
@@ -109,5 +109,4 @@ public class Client {
 		this.savingAccount = savingAccount;
 	}
 
-	
 }
