@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface CurrentAccountRepository extends JpaRepository<CurrentAccount, Long> {
 
-    @Query("SELECT ca FROM CurrentAccount ca WHERE ca.client.id = :clientId")
-    CurrentAccount findByClientId(@Param("clientId") Long clientId);
+	@Query("SELECT ca FROM CurrentAccount ca WHERE ca.client.id = :clientId")
+	CurrentAccount findByClientId(@Param("clientId") Long clientId);
 }

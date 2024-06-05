@@ -5,32 +5,32 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class InfoAccount {
 
-    private String numAccount;
-    private double solde;
-    private String openDate;
+	private String numAccount;
+	private double solde;
+	private String openDate;
 
-    // Getters and setters
-    public String getNumAccount() {
-        return numAccount;
-    }
+	// Getters and setters
+	public String getNumAccount() {
+		return numAccount;
+	}
 
-    public void setNumAccount(String numAccount) {
-        this.numAccount = numAccount;
-    }
+	public void setNumAccount(String numAccount) {
+		this.numAccount = numAccount;
+	}
 
-    public double getSolde() {
-        return solde;
-    }
+	public double getSolde() {
+		return solde;
+	}
 
-    public void setSolde(double solde) {
-        this.solde = solde;
-    }
+	public void setSolde(double solde) {
+		this.solde = solde;
+	}
 
-    public String getOpenDate() {
-        return openDate;
-    }
+	public String getOpenDate() {
+		return openDate;
+	}
 
-    public void setOpenDate(String openDate) {
-        this.openDate = openDate;
-    }
+	public void setOpenDate(String openDate) {
+		this.openDate = openDate;
+	}
 }

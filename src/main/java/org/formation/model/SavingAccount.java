@@ -15,54 +15,52 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class SavingAccount {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Embedded
-    @AttributeOverrides({
-        @AttributeOverride(name = "numAccount", column = @Column(name = "num_account")),
-        @AttributeOverride(name = "openDate", column = @Column(name = "open_date")),
-        @AttributeOverride(name = "solde", column = @Column(name = "solde"))
-    })
-    private InfoAccount infoAccount;
+	@Embedded
+	@AttributeOverrides({ @AttributeOverride(name = "numAccount", column = @Column(name = "num_account")),
+			@AttributeOverride(name = "openDate", column = @Column(name = "open_date")),
+			@AttributeOverride(name = "solde", column = @Column(name = "solde")) })
+	private InfoAccount infoAccount;
 
-    @Column(name = "pay_rate")
-    private double payRate = 0.03;
+	@Column(name = "pay_rate")
+	private double payRate = 0.03;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "savingAccount")
-    private Client client;
+	@JsonIgnore
+	@OneToOne(mappedBy = "savingAccount")
+	private Client client;
 
-    public double getPayRate() {
-        return payRate;
-    }
+	public double getPayRate() {
+		return payRate;
+	}
 
-    public void setPayRate(double payRate) {
-        this.payRate = payRate;
-    }
+	public void setPayRate(double payRate) {
+		this.payRate = payRate;
+	}
 
-    public InfoAccount getInfoAccount() {
-        return infoAccount;
-    }
+	public InfoAccount getInfoAccount() {
+		return infoAccount;
+	}
 
-    public void setInfoAccount(InfoAccount infoAccount) {
-        this.infoAccount = infoAccount;
-    }
+	public void setInfoAccount(InfoAccount infoAccount) {
+		this.infoAccount = infoAccount;
+	}
 
-    public Client getClient() {
-        return client;
-    }
+	public Client getClient() {
+		return client;
+	}
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
+	public void setClient(Client client) {
+		this.client = client;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
