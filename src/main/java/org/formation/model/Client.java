@@ -38,8 +38,6 @@ public class Client {
 	public Client() {
 	}
 
-
-    public Client() {}
     
     public Client(String lastName) {
     	this.lastName = lastName;
