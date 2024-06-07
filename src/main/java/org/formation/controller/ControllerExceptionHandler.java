@@ -13,23 +13,20 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-	
-	@ExceptionHandler(MethodArgumentNotValidException.class)  
-	@ResponseStatus(HttpStatus.BAD_REQUEST)   
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public Map<String, String> handleNotValidException(MethodArgumentNotValidException e) {
 		Map<String, String> errors = new HashMap<>();
-		
-		e.getBindingResult().getAllErrors().forEach( err -> {
-			
+
+		e.getBindingResult().getAllErrors().forEach(err -> {
+
 			String fieldName = ((FieldError) err).getField();
 			String message = err.getDefaultMessage();
-			
+
 			errors.put(fieldName, message);
 		});
-		
 		return errors;
 
 	}
-	
-	
+
 }

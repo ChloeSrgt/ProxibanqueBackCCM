@@ -68,14 +68,10 @@ public class ClientServiceImpl implements ClientService {
 		return repository.findById(id);
 	}
 
-
-
-
 	@Override
 	public void deleteById(long id) {
 		repository.deleteById(id);
 	}
-
 
 	@Override
 	public Client update(Client client) {

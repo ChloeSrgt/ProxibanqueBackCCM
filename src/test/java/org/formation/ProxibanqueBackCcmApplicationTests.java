@@ -1,3 +1,4 @@
+
 package org.formation;
 
 
@@ -12,3 +13,4 @@ class ProxibanqueBackCcmApplicationTests {
 	}
 
 }
+

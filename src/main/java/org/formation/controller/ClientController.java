@@ -22,51 +22,49 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("clients")
 public class ClientController {
-    private static final Logger LOG = LoggerFactory.getLogger(ClientController.class);
-    private ClientService service;
+	private static final Logger LOG = LoggerFactory.getLogger(ClientController.class);
+	private ClientService service;
 
-    public ClientController(ClientService service) {
-        this.service = service;
-    }
+	public ClientController(ClientService service) {
+		this.service = service;
+	}
 
-    // GET
-    @GetMapping
-    List<Client> getAllClients() {
-        return service.getAll();
-    }
+	// GET
+	@GetMapping
+	List<Client> getAllClients() {
+		return service.getAll();
+	}
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Client> getById(@PathVariable long id) {
-        return service.getClientById(id)
-                .map(c -> ResponseEntity.ok().body(c))
-                .orElse(ResponseEntity.notFound().build());
-    }
+	@GetMapping("/{id}")
+	public ResponseEntity<Client> getById(@PathVariable long id) {
+		return service.getClientById(id).map(c -> ResponseEntity.ok().body(c))
+				.orElse(ResponseEntity.notFound().build());
+	}
 
-    @GetMapping("/{id}/accounts")
-    public AccountsDTO getAccounts(@PathVariable Long id) {
-        return service.getAccountsByClientId(id);
-    }
-    
-    
-    // DELETE
-    @DeleteMapping("{id}")
-    void deleteClient(@PathVariable long id) {
-        service.deleteById(id);
-    }
+	@GetMapping("/{id}/accounts")
+	public AccountsDTO getAccounts(@PathVariable Long id) {
+		return service.getAccountsByClientId(id);
+	}
 
-    // POST
-    @PostMapping
-    Client postClient(@RequestBody Client client) {
-        LOG.info("Received client: {}", client);
-        return service.save(client);
-    }
-    
-    //PUT
-    
-    @PutMapping("{id}")
-    public ResponseEntity<Client> putClient(@PathVariable long id, @RequestBody Client client){
-    	LOG.info("Edited client : {} ", client);
-    	service.update(client);
-    	return null;
-    }
+	// DELETE
+	@DeleteMapping("{id}")
+	void deleteClient(@PathVariable long id) {
+		service.deleteById(id);
+	}
+
+	// POST
+	@PostMapping
+	Client postClient(@RequestBody Client client) {
+		LOG.info("Received client: {}", client);
+		return service.save(client);
+	}
+
+	// PUT
+
+	@PutMapping("{id}")
+	public ResponseEntity<Client> putClient(@PathVariable long id, @RequestBody Client client) {
+		LOG.info("Edited client : {} ", client);
+		service.update(client);
+		return null;
+	}
 }
