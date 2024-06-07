@@ -38,12 +38,20 @@ public class Client {
 	public Client() {
 	}
 
+
+    public Client() {}
+    
+    public Client(String lastName) {
+    	this.lastName = lastName;
+    }
+
 	public Client(String firstName, String lastName, Address address, String noTel) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.noTel = noTel;
 	}
+
 
 	public String getFirstName() {
 		return firstName;
