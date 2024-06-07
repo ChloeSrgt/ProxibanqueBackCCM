@@ -26,6 +26,11 @@ public class TransferServiceImpl implements TransferService {
 	@Transactional
 	@Override
 	public boolean transfer(double amount, long fromAccountId, long toAccountId) {
+		if (amount <= 0) {
+			logger.error("Transfer amount must be positive");
+			throw new IllegalArgumentException("Transfer amount must be positive");
+		}
+
 		logger.info("Attempting to transfer {} from account {} to account {}", amount, fromAccountId, toAccountId);
 		CurrentAccount fromCurrentAccount = currentAccountRepository.findById(fromAccountId).orElse(null);
 		SavingAccount fromSavingAccount = savingAccountRepository.findById(fromAccountId).orElse(null);
