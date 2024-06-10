@@ -1,5 +1,6 @@
 package org.formation.dto;
 
+// Class to display the different accounts of one client
 import org.formation.model.CurrentAccount;
 import org.formation.model.SavingAccount;
 
@@ -7,7 +8,6 @@ public class AccountsDTO {
 	private CurrentAccount currentAccount;
 	private SavingAccount savingAccount;
 
-	// Getters et setters
 	public CurrentAccount getCurrentAccount() {
 		return currentAccount;
 	}
