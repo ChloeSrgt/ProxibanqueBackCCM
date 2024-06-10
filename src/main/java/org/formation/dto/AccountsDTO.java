@@ -8,7 +8,6 @@ public class AccountsDTO {
 	private CurrentAccount currentAccount;
 	private SavingAccount savingAccount;
 
-	// Getters et setters
 	public CurrentAccount getCurrentAccount() {
 		return currentAccount;
 	}
